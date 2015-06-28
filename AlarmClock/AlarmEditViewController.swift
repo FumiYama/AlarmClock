@@ -71,6 +71,7 @@ class AlarmEditViewController: UIViewController {
         myDatePicker.timeZone = NSTimeZone.localTimeZone()
         myDatePicker.backgroundColor = UIColor.groupTableViewBackgroundColor()
         myDatePicker.layer.cornerRadius = 5.0
+        myDatePicker.datePickerMode = UIDatePickerMode.Time
         myDatePicker.addTarget(self, action: Selector("datePickerChanged:"), forControlEvents: UIControlEvents.ValueChanged)
         
         self.view.addSubview(myDatePicker)
@@ -93,7 +94,7 @@ class AlarmEditViewController: UIViewController {
         let now = NSDate()
         let dateFormatter = NSDateFormatter()
         dateFormatter.locale = NSLocale(localeIdentifier: "ja_JP") // ロケールの設定
-        dateFormatter.dateFormat = "MM/dd HH:mm" // 日付フォーマットの設定
+        dateFormatter.dateFormat = "HH:mm" // 日付フォーマットの設定
         var thisDate = dateFormatter.stringFromDate(now)
         return thisDate
     }
@@ -101,7 +102,7 @@ class AlarmEditViewController: UIViewController {
     func datePickerChanged(datePicker: UIDatePicker) {
         // フォーマットを生成
         let myDateFormatter = NSDateFormatter()
-        myDateFormatter.dateFormat = "MM/dd HH:mm"
+        myDateFormatter.dateFormat = "HH:mm"
         // 日付をフォーマットに則って取得.
         let mySelectedDate = myDateFormatter.stringFromDate(datePicker.date)
         timeSetLabel.text = mySelectedDate as String

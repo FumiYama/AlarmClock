@@ -17,6 +17,18 @@
 		32C280BE1B37C4B100186A96 /* AlarmEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C280BD1B37C4B100186A96 /* AlarmEditViewController.swift */; };
 		32C280C01B387E0500186A96 /* BubbleTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C280BF1B387E0500186A96 /* BubbleTransition.swift */; };
 		32C280C21B387FCD00186A96 /* AlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C280C11B387FCD00186A96 /* AlarmViewController.swift */; };
+		32F8CDAC1B3FC9C900A4EEBF /* AlarmWaitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F8CDAB1B3FC9C900A4EEBF /* AlarmWaitViewController.swift */; };
+		32F8CDB91B40511A00A4EEBF /* 0.png in Resources */ = {isa = PBXBuildFile; fileRef = 32F8CDAE1B40511A00A4EEBF /* 0.png */; };
+		32F8CDBA1B40511A00A4EEBF /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 32F8CDAF1B40511A00A4EEBF /* 1.png */; };
+		32F8CDBB1B40511A00A4EEBF /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 32F8CDB01B40511A00A4EEBF /* 2.png */; };
+		32F8CDBC1B40511A00A4EEBF /* 3.png in Resources */ = {isa = PBXBuildFile; fileRef = 32F8CDB11B40511A00A4EEBF /* 3.png */; };
+		32F8CDBD1B40511A00A4EEBF /* 4.png in Resources */ = {isa = PBXBuildFile; fileRef = 32F8CDB21B40511A00A4EEBF /* 4.png */; };
+		32F8CDBE1B40511A00A4EEBF /* 5.png in Resources */ = {isa = PBXBuildFile; fileRef = 32F8CDB31B40511A00A4EEBF /* 5.png */; };
+		32F8CDBF1B40511A00A4EEBF /* 6.png in Resources */ = {isa = PBXBuildFile; fileRef = 32F8CDB41B40511A00A4EEBF /* 6.png */; };
+		32F8CDC01B40511A00A4EEBF /* 7.png in Resources */ = {isa = PBXBuildFile; fileRef = 32F8CDB51B40511A00A4EEBF /* 7.png */; };
+		32F8CDC11B40511A00A4EEBF /* 8.png in Resources */ = {isa = PBXBuildFile; fileRef = 32F8CDB61B40511A00A4EEBF /* 8.png */; };
+		32F8CDC21B40511A00A4EEBF /* 9.png in Resources */ = {isa = PBXBuildFile; fileRef = 32F8CDB71B40511A00A4EEBF /* 9.png */; };
+		32F8CDC31B40511A00A4EEBF /* コロン.png in Resources */ = {isa = PBXBuildFile; fileRef = 32F8CDB81B40511A00A4EEBF /* コロン.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +56,18 @@
 		32C280BD1B37C4B100186A96 /* AlarmEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmEditViewController.swift; sourceTree = "<group>"; usesTabs = 0; };
 		32C280BF1B387E0500186A96 /* BubbleTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BubbleTransition.swift; sourceTree = "<group>"; };
 		32C280C11B387FCD00186A96 /* AlarmViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmViewController.swift; sourceTree = "<group>"; };
+		32F8CDAB1B3FC9C900A4EEBF /* AlarmWaitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmWaitViewController.swift; sourceTree = "<group>"; };
+		32F8CDAE1B40511A00A4EEBF /* 0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 0.png; sourceTree = "<group>"; };
+		32F8CDAF1B40511A00A4EEBF /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
+		32F8CDB01B40511A00A4EEBF /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.png; sourceTree = "<group>"; };
+		32F8CDB11B40511A00A4EEBF /* 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3.png; sourceTree = "<group>"; };
+		32F8CDB21B40511A00A4EEBF /* 4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 4.png; sourceTree = "<group>"; };
+		32F8CDB31B40511A00A4EEBF /* 5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 5.png; sourceTree = "<group>"; };
+		32F8CDB41B40511A00A4EEBF /* 6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 6.png; sourceTree = "<group>"; };
+		32F8CDB51B40511A00A4EEBF /* 7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 7.png; sourceTree = "<group>"; };
+		32F8CDB61B40511A00A4EEBF /* 8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 8.png; sourceTree = "<group>"; };
+		32F8CDB71B40511A00A4EEBF /* 9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 9.png; sourceTree = "<group>"; };
+		32F8CDB81B40511A00A4EEBF /* コロン.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "コロン.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,10 +109,12 @@
 		32C280981B37BD7E00186A96 /* AlarmClock */ = {
 			isa = PBXGroup;
 			children = (
+				32F8CDAD1B40511A00A4EEBF /* Image */,
 				32C280BF1B387E0500186A96 /* BubbleTransition.swift */,
 				32C2809B1B37BD7E00186A96 /* AppDelegate.swift */,
 				32C280BB1B37C49700186A96 /* mainViewController.swift */,
 				32C280BD1B37C4B100186A96 /* AlarmEditViewController.swift */,
+				32F8CDAB1B3FC9C900A4EEBF /* AlarmWaitViewController.swift */,
 				32C280C11B387FCD00186A96 /* AlarmViewController.swift */,
 				32C2809D1B37BD7E00186A96 /* ViewController.swift */,
 				32C0C5821B3CB94D0087E41F /* If_I_Had_a_Chicken.mp3 */,
@@ -122,6 +148,24 @@
 				32C280B01B37BD7E00186A96 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		32F8CDAD1B40511A00A4EEBF /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				32F8CDAE1B40511A00A4EEBF /* 0.png */,
+				32F8CDAF1B40511A00A4EEBF /* 1.png */,
+				32F8CDB01B40511A00A4EEBF /* 2.png */,
+				32F8CDB11B40511A00A4EEBF /* 3.png */,
+				32F8CDB21B40511A00A4EEBF /* 4.png */,
+				32F8CDB31B40511A00A4EEBF /* 5.png */,
+				32F8CDB41B40511A00A4EEBF /* 6.png */,
+				32F8CDB51B40511A00A4EEBF /* 7.png */,
+				32F8CDB61B40511A00A4EEBF /* 8.png */,
+				32F8CDB71B40511A00A4EEBF /* 9.png */,
+				32F8CDB81B40511A00A4EEBF /* コロン.png */,
+			);
+			path = Image;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -204,9 +248,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32F8CDC11B40511A00A4EEBF /* 8.png in Resources */,
+				32F8CDC01B40511A00A4EEBF /* 7.png in Resources */,
+				32F8CDBB1B40511A00A4EEBF /* 2.png in Resources */,
+				32F8CDB91B40511A00A4EEBF /* 0.png in Resources */,
+				32F8CDC21B40511A00A4EEBF /* 9.png in Resources */,
 				32C280A31B37BD7E00186A96 /* Images.xcassets in Resources */,
 				32C0C5831B3CB94D0087E41F /* If_I_Had_a_Chicken.mp3 in Resources */,
+				32F8CDBF1B40511A00A4EEBF /* 6.png in Resources */,
+				32F8CDBD1B40511A00A4EEBF /* 4.png in Resources */,
 				32C0C5851B3CC8D30087E41F /* Spring_In_My_Step.mp3 in Resources */,
+				32F8CDBE1B40511A00A4EEBF /* 5.png in Resources */,
+				32F8CDC31B40511A00A4EEBF /* コロン.png in Resources */,
+				32F8CDBC1B40511A00A4EEBF /* 3.png in Resources */,
+				32F8CDBA1B40511A00A4EEBF /* 1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -230,6 +285,7 @@
 				32C2809C1B37BD7E00186A96 /* AppDelegate.swift in Sources */,
 				32C280BE1B37C4B100186A96 /* AlarmEditViewController.swift in Sources */,
 				32C280BC1B37C49700186A96 /* mainViewController.swift in Sources */,
+				32F8CDAC1B3FC9C900A4EEBF /* AlarmWaitViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -13,8 +13,6 @@ protocol MainViewControllerDelegate {
 
 class mainViewController: UIViewController, MainViewControllerDelegate {
     
-//    var delegate: AlarmViewConrtrollerDelegate!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -77,17 +75,13 @@ class mainViewController: UIViewController, MainViewControllerDelegate {
     }
     //sleepボタンのアクション
     internal func wakeUpTimeSubmit(sender: UIButton) {
-        let sleepViewController = AlarmViewController()
-//        sleepViewController.delegate = self
 //       NSLog(timeSetLabel.text)
-        
-//        self.delegate.alarmText(self.timeSetLabel.text!)
-        println(timeSetLabel.text)
         //AppDelegateのインスタンスを取得
         var appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         //appDelegateの変数を操作
-        appDelegate.message = timeSetLabel.text
-
+        appDelegate.message1 = timeSetLabel.text
+        
+        let sleepViewController = AlarmWaitViewController()
         self.presentViewController(sleepViewController, animated: true, completion: nil)
     }
     

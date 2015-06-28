@@ -13,7 +13,7 @@ protocol MainViewControllerDelegate {
 
 class mainViewController: UIViewController, MainViewControllerDelegate {
     
-    var delegate: AlarmViewConrtrollerDelegate!
+//    var delegate: AlarmViewConrtrollerDelegate!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,17 +31,13 @@ class mainViewController: UIViewController, MainViewControllerDelegate {
     var timeSetLabel: UILabel = UILabel(frame: CGRectMake(50, 50, 250, 60))
 
     func timeSettingLabel(){
-        //        self.view.bounds.size.width
-        
         timeSetLabel.textAlignment = NSTextAlignment.Center
         timeSetLabel.textColor = UIColor.whiteColor()
         timeSetLabel.backgroundColor = UIColor.purpleColor()
         timeSetLabel.layer.masksToBounds = true
         timeSetLabel.layer.cornerRadius = 10
-        //        timeSettingLabel.layer.borderColor = CGColor
-        //        timeSettingLabel.layer.borderWidth = 1.0
         timeSetLabel.layer.position = CGPoint(x: self.view.frame.width/2, y: 350)
-        
+        timeSetLabel.font = UIFont.systemFontOfSize(30)
         self.view.addSubview(timeSetLabel)
         
     }
@@ -49,8 +45,8 @@ class mainViewController: UIViewController, MainViewControllerDelegate {
     func alarmEditButton(){
         let alarmEditButton = UIButton(frame: CGRectMake(self.view.frame.width/2, 500, 100, 60))
         alarmEditButton.setTitle("Edit", forState: UIControlState.Normal)
-        alarmEditButton.setTitleColor(UIColor.greenColor(), forState: UIControlState.Normal)
-//        alarmEditButton.backgroundColor = UIColor(red: 0.7, green: 0.2, blue: 0.2, alpha: 0.2)
+//        alarmEditButton.setTitleColor(UIColor.greenColor(), forState: UIControlState.Normal)
+        alarmEditButton.setTitleColor(UIColor(red: 0.0, green: 1.0, blue: 0.0, alpha: 1.0), forState: UIControlState.Normal)
         alarmEditButton.layer.cornerRadius = 10
         alarmEditButton.layer.borderWidth = 2
         alarmEditButton.layer.borderColor = UIColor.greenColor().CGColor
@@ -83,11 +79,15 @@ class mainViewController: UIViewController, MainViewControllerDelegate {
     internal func wakeUpTimeSubmit(sender: UIButton) {
         let sleepViewController = AlarmViewController()
 //        sleepViewController.delegate = self
-        println(timeSetLabel.text)
+//       NSLog(timeSetLabel.text)
         
-        self.delegate.alarmText(self.timeSetLabel.text!)
+//        self.delegate.alarmText(self.timeSetLabel.text!)
         println(timeSetLabel.text)
-        
+        //AppDelegateのインスタンスを取得
+        var appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        //appDelegateの変数を操作
+        appDelegate.message = timeSetLabel.text
+
         self.presentViewController(sleepViewController, animated: true, completion: nil)
     }
     
@@ -95,6 +95,7 @@ class mainViewController: UIViewController, MainViewControllerDelegate {
     func timeSet(text: String) {
         timeSetLabel.text = text
     }
+    
     
     
     

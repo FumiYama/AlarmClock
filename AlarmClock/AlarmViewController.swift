@@ -9,11 +9,7 @@
 import UIKit
 import AVFoundation
 
-protocol AlarmViewConrtrollerDelegate {
-    func alarmText(text: String)
-}
-
-class AlarmViewController: UIViewController , AlarmViewConrtrollerDelegate, AVAudioPlayerDelegate {
+class AlarmViewController: UIViewController , AVAudioPlayerDelegate {
     
     let myButton0 = UIButton(frame: CGRectMake(0,0,90,90))
     let myButton1 = UIButton(frame: CGRectMake(0,0,90,90))
@@ -72,9 +68,7 @@ class AlarmViewController: UIViewController , AlarmViewConrtrollerDelegate, AVAu
             break
         }
     }
-    
     func colorDefault() {
-        
         switch random {
         case 0:
             myButton0.layer.borderColor = UIColor.blueColor().CGColor
@@ -117,13 +111,16 @@ class AlarmViewController: UIViewController , AlarmViewConrtrollerDelegate, AVAu
             break
         }
     }
-    
   
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.blackColor()
         
         self.timeLabel()
+        var appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        //AppDelegateのインスタンスを取得
+        var message = appDelegate.message
+        timeSetLabel.text = message
         
         self.myButtonAction0()
         self.myButtonAction1()
@@ -136,11 +133,13 @@ class AlarmViewController: UIViewController , AlarmViewConrtrollerDelegate, AVAu
         self.myButtonAction8()
         
         self.audio()
-        
+        println(message)
         println(random)
         
         self.colorChange()
-    }
+    
+    
+            }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -154,8 +153,6 @@ class AlarmViewController: UIViewController , AlarmViewConrtrollerDelegate, AVAu
         // AVAudioPlayerのインスタンス化
         myAudioPlayer = AVAudioPlayer(contentsOfURL: fileURL, error: nil)
         myAudioPlayer.play()
-        //        myAudioPlayer.delegate = self // デリゲートセット
-        
     }
     
     //soundボタンがタップされた時に呼ばれるメソッド.
@@ -174,11 +171,18 @@ class AlarmViewController: UIViewController , AlarmViewConrtrollerDelegate, AVAu
             colorChange()
         } else {
             colorDefault()
+            
+            let alert = UIAlertView()
+            alert.title = "脳みそ全開！"
+            alert.message = "おはようございます♪"
+            alert.addButtonWithTitle("OK")
+            alert.show()
+           
             myAudioPlayer.pause()
-            
-//            var targetView: AnyObject self.storyboard!.instantiateViewControllerWithIdentifier( "welcome" )
-            
-//            self.presentViewController( targetView as UIViewController, animated: true, completion: nil)
+            let myMainViewController: UIViewController = mainViewController()
+            myMainViewController.modalTransitionStyle = UIModalTransitionStyle.PartialCurl
+            self.presentViewController(myMainViewController, animated: true, completion: nil)
+
         }
          println(correctAnser)
     }
@@ -194,30 +198,19 @@ class AlarmViewController: UIViewController , AlarmViewConrtrollerDelegate, AVAu
     
     
     var timeSetLabel: UILabel = UILabel(frame: CGRectMake(50, 50, 250, 200))
-
+    
+    
+    
     func timeLabel() {
-        timeSetLabel.text = "6/28 6:00"
         timeSetLabel.textAlignment = NSTextAlignment.Center
         timeSetLabel.textColor = UIColor.purpleColor()
         timeSetLabel.backgroundColor = UIColor.clearColor()
-        timeSetLabel.font = UIFont.systemFontOfSize(50)
+        timeSetLabel.font = UIFont.systemFontOfSize(40)
         timeSetLabel.layer.masksToBounds = true
         timeSetLabel.layer.position = CGPoint(x: self.view.frame.width/2, y: 150)
         
         self.view.addSubview(timeSetLabel)
         
-    }
-    // sleepButton押下時の処理、delegateメソッドを呼び出すメソッド
-//    func openSleepButton(sender: UIButton) {
-//        var myMainViewController = mainViewController()
-//        myMainViewController.delegate = self
-//        var controller = UINavigationController(rootViewController: myMainViewController)
-//        self.presentViewController(controller, animated: true, completion: nil)
-//    }
-    
-    // delegateで使用するメソッド
-    func alarmText(text: String) {
-        timeSetLabel.text = text
     }
     
     func myButtonAction0() {
@@ -246,13 +239,6 @@ class AlarmViewController: UIViewController , AlarmViewConrtrollerDelegate, AVAu
         myButton1.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
         myButton1.tag = 1
         myButton1.addTarget(self, action: "onClickSoundStopButton:", forControlEvents: UIControlEvents.TouchUpInside)
-//        var tagNum: Int = 0
-//        //        for var numx = 0 ; numx<400 ; numx += 100 {
-//            for var numy = 200 ; numy<=600 ; numy += 100 {
-//                myButton.layer.position = CGPoint(x: numx, y: numy)
-//                self.view.addSubview(myButton)
-//            }
-//        }
         self.view.addSubview(myButton1)
     }
     func myButtonAction2() {

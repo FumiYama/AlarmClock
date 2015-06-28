@@ -13,7 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     
-    var timeSetText:String?
+    var message: String?
     
     
 
@@ -25,7 +25,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         self.window?.backgroundColor = UIColor.groupTableViewBackgroundColor()
-        self.window?.rootViewController = AlarmViewController()
+        self.window?.rootViewController = mainViewController()
+        
         self.window?.makeKeyAndVisible()
         
         return true

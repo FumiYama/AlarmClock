@@ -79,16 +79,12 @@ class AlarmEditViewController: UIViewController {
     let timeSetLabel = UILabel(frame: CGRectMake(50, 50, 200, 40))
     
     func timeSettingLabel() {
-        
-        var nowTime = self.getDate()
-       
         timeSetLabel.textAlignment = NSTextAlignment.Center
-        timeSetLabel.text = "\(nowTime)"
+        timeSetLabel.text = "\(self.getDate())"
         timeSetLabel.layer.borderColor = UIColor.purpleColor().CGColor
         timeSetLabel.layer.borderWidth = 2
         timeSetLabel.layer.cornerRadius = 10
-        timeSetLabel.layer.position = CGPoint(x: self.view.bounds.width/2,y: self.view.bounds.height - 250);
-        
+        timeSetLabel.layer.position = CGPoint(x: self.view.bounds.width/2,y: self.view.bounds.height - 250)
         self.view.addSubview(timeSetLabel)
     }
     
@@ -113,8 +109,8 @@ class AlarmEditViewController: UIViewController {
     
     // OKボタンのaction,
     func timeSubmit() {
-//        self.delegate.timeSet(self.timeSetLabel.text!)
-//        self.dismissViewControllerAnimated(true, completion: nil)
-        self.dismissViewControllerAnimated(true, completion: {self.delegate.timeSet(self.timeSetLabel.text!)})
+        self.delegate.timeSet(self.timeSetLabel.text!)
+        self.dismissViewControllerAnimated(true, completion: nil)
+//        self.dismissViewControllerAnimated(true, completion: {self.delegate.timeSet(self.timeSetLabel.text!)})
     }
 }

@@ -25,57 +25,94 @@ class AlarmViewController: UIViewController , AlarmViewConrtrollerDelegate, AVAu
     let myButton7 = UIButton(frame: CGRectMake(0,0,90,90))
     let myButton8 = UIButton(frame: CGRectMake(0,0,90,90))
     
-    let random = arc4random() % 9 //0~8(9つ)の乱数発生
-
+    var random:Int = 0
+    var correctAnser:Int = 0
     var myAudioPlayer: AVAudioPlayer!    //変数宣言
 
     func colorChange() {
+        random = Int(arc4random()%9) //0~8(9つ)の乱数発生
         switch random {
         case 0:
             myButton0.layer.borderColor = UIColor.greenColor().CGColor
             myButton0.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
             myButton0.backgroundColor = UIColor.greenColor()
-            myButton0.addTarget(self, action: "onClickSoundStopButton:", forControlEvents: UIControlEvents.TouchUpInside)
         case 1:
             myButton1.layer.borderColor = UIColor.greenColor().CGColor
             myButton1.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
             myButton1.backgroundColor = UIColor.greenColor()
-            myButton1.addTarget(self, action: "onClickSoundStopButton:", forControlEvents: UIControlEvents.TouchUpInside)
         case 2:
             myButton2.layer.borderColor = UIColor.greenColor().CGColor
             myButton2.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
             myButton2.backgroundColor = UIColor.greenColor()
-            myButton2.addTarget(self, action: "onClickSoundStopButton:", forControlEvents: UIControlEvents.TouchUpInside)
         case 3:
             myButton3.layer.borderColor = UIColor.greenColor().CGColor
             myButton3.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
             myButton3.backgroundColor = UIColor.greenColor()
-            myButton3.addTarget(self, action: "onClickSoundStopButton:", forControlEvents: UIControlEvents.TouchUpInside)
         case 4:
             myButton4.layer.borderColor = UIColor.greenColor().CGColor
             myButton4.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
             myButton4.backgroundColor = UIColor.greenColor()
-            myButton4.addTarget(self, action: "onClickSoundStopButton:", forControlEvents: UIControlEvents.TouchUpInside)
         case 5:
             myButton5.layer.borderColor = UIColor.greenColor().CGColor
             myButton5.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
             myButton5.backgroundColor = UIColor.greenColor()
-            myButton5.addTarget(self, action: "onClickSoundStopButton:", forControlEvents: UIControlEvents.TouchUpInside)
         case 6:
             myButton6.layer.borderColor = UIColor.greenColor().CGColor
             myButton6.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
             myButton6.backgroundColor = UIColor.greenColor()
-            myButton6.addTarget(self, action: "onClickSoundStopButton:", forControlEvents: UIControlEvents.TouchUpInside)
         case 7:
             myButton7.layer.borderColor = UIColor.greenColor().CGColor
             myButton7.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
             myButton7.backgroundColor = UIColor.greenColor()
-            myButton7.addTarget(self, action: "onClickSoundStopButton:", forControlEvents: UIControlEvents.TouchUpInside)
         case 8:
             myButton8.layer.borderColor = UIColor.greenColor().CGColor
             myButton8.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
             myButton8.backgroundColor = UIColor.greenColor()
-            myButton8.addTarget(self, action: "onClickSoundStopButton:", forControlEvents: UIControlEvents.TouchUpInside)
+        default :
+            break
+        }
+    }
+    
+    func colorDefault() {
+        
+        switch random {
+        case 0:
+            myButton0.layer.borderColor = UIColor.blueColor().CGColor
+            myButton0.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
+            myButton0.backgroundColor = UIColor.blueColor()
+        case 1:
+            myButton1.layer.borderColor = UIColor.blueColor().CGColor
+            myButton1.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
+            myButton1.backgroundColor = UIColor.blueColor()
+        case 2:
+            myButton2.layer.borderColor = UIColor.blueColor().CGColor
+            myButton2.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
+            myButton2.backgroundColor = UIColor.blueColor()
+            
+        case 3:
+            myButton3.layer.borderColor = UIColor.blueColor().CGColor
+            myButton3.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
+            myButton3.backgroundColor = UIColor.blueColor()
+        case 4:
+            myButton4.layer.borderColor = UIColor.blueColor().CGColor
+            myButton4.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
+            myButton4.backgroundColor = UIColor.blueColor()
+        case 5:
+            myButton5.layer.borderColor = UIColor.blueColor().CGColor
+            myButton5.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
+            myButton5.backgroundColor = UIColor.blueColor()
+        case 6:
+            myButton6.layer.borderColor = UIColor.blueColor().CGColor
+            myButton6.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
+            myButton6.backgroundColor = UIColor.blueColor()
+        case 7:
+            myButton7.layer.borderColor = UIColor.blueColor().CGColor
+            myButton7.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
+            myButton7.backgroundColor = UIColor.blueColor()
+        case 8:
+            myButton8.layer.borderColor = UIColor.blueColor().CGColor
+            myButton8.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
+            myButton8.backgroundColor = UIColor.blueColor()
         default :
             break
         }
@@ -85,14 +122,6 @@ class AlarmViewController: UIViewController , AlarmViewConrtrollerDelegate, AVAu
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.blackColor()
-        
-        //再生する音源のURLを生成
-        let soundFilePath = NSBundle.mainBundle().pathForResource("Spring_In_My_Step", ofType: "mp3")!
-        let fileURL : NSURL = NSURL(fileURLWithPath: soundFilePath as String)!
-        // AVAudioPlayerのインスタンス化
-        myAudioPlayer = AVAudioPlayer(contentsOfURL: fileURL, error: nil)
-        myAudioPlayer.play()
-        //        myAudioPlayer.delegate = self // デリゲートセット
         
         self.timeLabel()
         
@@ -106,7 +135,10 @@ class AlarmViewController: UIViewController , AlarmViewConrtrollerDelegate, AVAu
         self.myButtonAction7()
         self.myButtonAction8()
         
+        self.audio()
+        
         println(random)
+        
         self.colorChange()
     }
     
@@ -115,43 +147,54 @@ class AlarmViewController: UIViewController , AlarmViewConrtrollerDelegate, AVAu
         // Dispose of any resources that can be recreated.
     }
     
-    //soundボタンがタップされた時に呼ばれるメソッド.
-    func onClickSoundStopButton(sender: UIButton) {
+    func audio() {
+        //再生する音源のURLを生成
+        let soundFilePath = NSBundle.mainBundle().pathForResource("Spring_In_My_Step", ofType: "mp3")!
+        let fileURL : NSURL = NSURL(fileURLWithPath: soundFilePath as String)!
+        // AVAudioPlayerのインスタンス化
+        myAudioPlayer = AVAudioPlayer(contentsOfURL: fileURL, error: nil)
+        myAudioPlayer.play()
+        //        myAudioPlayer.delegate = self // デリゲートセット
         
-        //playingプロパティがtrueであれば音源再生中.
-        if myAudioPlayer.playing == true {
-            
-            //myAudioPlayerを一時停止.
-            myAudioPlayer.pause()
-            
-//            sender.setTitle("▶︎", forState: .Normal)
-        } else {
-            
-            //myAudioPlayerの再生.
-            myAudioPlayer.play()
-//            sender.setTitle("■", forState: .Normal)
-        }
     }
     
-//    //音楽再生が成功した時に呼ばれるメソッド.
-//    func audioPlayerDidFinishPlaying(player: AVAudioPlayer!, successfully flag: Bool) {
-//        println("Music Finish")
-//        
-//        //再度myButtonを"▶︎"に設定.
-//        soundButton.setTitle("▶︎", forState: .Normal)
-//    }
-//    
-//    //デコード中にエラーが起きた時に呼ばれるメソッド.
-//    func audioPlayerDecodeErrorDidOccur(player: AVAudioPlayer!, error: NSError!) {
-//        println("Error")
-//    }
+    //soundボタンがタップされた時に呼ばれるメソッド.
+    func onClickSoundStopButton(sender: UIButton) {
+        if correctAnser < 4 {
+            if random == sender.tag {
+                correctAnser++
+            } else {
+                var volume = myAudioPlayer.volume + 0.2
+                if volume > 1.0 {
+                    volume = 1.0
+                }
+                myAudioPlayer.volume = volume
+            }
+            colorDefault()
+            colorChange()
+        } else {
+            colorDefault()
+            myAudioPlayer.pause()
+            
+//            var targetView: AnyObject self.storyboard!.instantiateViewControllerWithIdentifier( "welcome" )
+            
+//            self.presentViewController( targetView as UIViewController, animated: true, completion: nil)
+        }
+         println(correctAnser)
+    }
     
+    internal func finishAlarmButton(sender: UIButton){
+        // 遷移するViewを定義する.
+        let myMainViewController: UIViewController = mainViewController()
+        // アニメーションを設定する.
+        myMainViewController.modalTransitionStyle = UIModalTransitionStyle.PartialCurl
+        // Viewの移動する.
+        self.presentViewController(myMainViewController, animated: true, completion: nil)
+    }
     
     
     var timeSetLabel: UILabel = UILabel(frame: CGRectMake(50, 50, 250, 200))
 
-    
-    
     func timeLabel() {
         timeSetLabel.text = "6/28 6:00"
         timeSetLabel.textAlignment = NSTextAlignment.Center
@@ -188,7 +231,7 @@ class AlarmViewController: UIViewController , AlarmViewConrtrollerDelegate, AVAu
         myButton0.setTitle("WakeUp", forState: UIControlState.Normal)
         myButton0.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
         myButton0.tag = 0
-       
+        myButton0.addTarget(self, action: "onClickSoundStopButton:", forControlEvents: UIControlEvents.TouchUpInside)
         self.view.addSubview(myButton0)
     }
     func myButtonAction1() {
@@ -201,7 +244,8 @@ class AlarmViewController: UIViewController , AlarmViewConrtrollerDelegate, AVAu
         myButton1.layer.borderColor = UIColor.blueColor().CGColor
         myButton1.setTitle("WakeUp", forState: UIControlState.Normal)
         myButton1.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
-        myButton1.tag = 0
+        myButton1.tag = 1
+        myButton1.addTarget(self, action: "onClickSoundStopButton:", forControlEvents: UIControlEvents.TouchUpInside)
 //        var tagNum: Int = 0
 //        //        for var numx = 0 ; numx<400 ; numx += 100 {
 //            for var numy = 200 ; numy<=600 ; numy += 100 {
@@ -221,7 +265,7 @@ class AlarmViewController: UIViewController , AlarmViewConrtrollerDelegate, AVAu
         myButton2.setTitle("WakeUp", forState: UIControlState.Normal)
         myButton2.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
         myButton2.tag = 2
- 
+        myButton2.addTarget(self, action: "onClickSoundStopButton:", forControlEvents: UIControlEvents.TouchUpInside)
         self.view.addSubview(myButton2)
     }
     func myButtonAction3() {
@@ -234,7 +278,7 @@ class AlarmViewController: UIViewController , AlarmViewConrtrollerDelegate, AVAu
         myButton3.setTitle("WakeUp", forState: UIControlState.Normal)
         myButton3.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
         myButton3.tag = 3
-        
+        myButton3.addTarget(self, action: "onClickSoundStopButton:", forControlEvents: UIControlEvents.TouchUpInside)
         self.view.addSubview(myButton3)
     }
     func myButtonAction4() {
@@ -247,7 +291,7 @@ class AlarmViewController: UIViewController , AlarmViewConrtrollerDelegate, AVAu
         myButton4.setTitle("WakeUp", forState: UIControlState.Normal)
         myButton4.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
         myButton4.tag = 4
-        
+        myButton4.addTarget(self, action: "onClickSoundStopButton:", forControlEvents: UIControlEvents.TouchUpInside)
         self.view.addSubview(myButton4)
     }
     func myButtonAction5() {
@@ -260,7 +304,7 @@ class AlarmViewController: UIViewController , AlarmViewConrtrollerDelegate, AVAu
         myButton5.setTitle("WakeUp", forState: UIControlState.Normal)
         myButton5.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
         myButton5.tag = 5
-        
+        myButton5.addTarget(self, action: "onClickSoundStopButton:", forControlEvents: UIControlEvents.TouchUpInside)
         self.view.addSubview(myButton5)
     }
     func myButtonAction6() {
@@ -273,7 +317,7 @@ class AlarmViewController: UIViewController , AlarmViewConrtrollerDelegate, AVAu
         myButton6.setTitle("WakeUp", forState: UIControlState.Normal)
         myButton6.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
         myButton6.tag = 6
-        
+        myButton6.addTarget(self, action: "onClickSoundStopButton:", forControlEvents: UIControlEvents.TouchUpInside)
         self.view.addSubview(myButton6)
     }
     func myButtonAction7() {
@@ -286,7 +330,7 @@ class AlarmViewController: UIViewController , AlarmViewConrtrollerDelegate, AVAu
         myButton7.setTitle("WakeUp", forState: UIControlState.Normal)
         myButton7.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
         myButton7.tag = 7
-        
+        myButton7.addTarget(self, action: "onClickSoundStopButton:", forControlEvents: UIControlEvents.TouchUpInside)
         self.view.addSubview(myButton7)
     }
     func myButtonAction8() {
@@ -299,7 +343,7 @@ class AlarmViewController: UIViewController , AlarmViewConrtrollerDelegate, AVAu
         myButton8.setTitle("WakeUp", forState: UIControlState.Normal)
         myButton8.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
         myButton8.tag = 8
-        
+        myButton8.addTarget(self, action: "onClickSoundStopButton:", forControlEvents: UIControlEvents.TouchUpInside)
         self.view.addSubview(myButton8)
     }
     

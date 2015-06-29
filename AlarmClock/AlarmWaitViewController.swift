@@ -30,15 +30,25 @@ class AlarmWaitViewController: UIViewController {
     var colon2ImageView: UIImageView!
     
     var image0:UIImage! = UIImage(named: "0.png")
+    var image02:UIImage! = UIImage(named: "02.png")
     var image1:UIImage! = UIImage(named: "1.png")
+    var image12:UIImage! = UIImage(named: "12.png")
     var image2:UIImage! = UIImage(named: "2.png")
+    var image22:UIImage! = UIImage(named: "22.png")
     var image3:UIImage! = UIImage(named: "3.png")
+    var image32:UIImage! = UIImage(named: "32.png")
     var image4:UIImage! = UIImage(named: "4.png")
+    var image42:UIImage! = UIImage(named: "42.png")
     var image5:UIImage! = UIImage(named: "5.png")
+    var image52:UIImage! = UIImage(named: "52.png")
     var image6:UIImage! = UIImage(named: "6.png")
+    var image62:UIImage! = UIImage(named: "62.png")
     var image7:UIImage! = UIImage(named: "7.png")
+    var image72:UIImage! = UIImage(named: "72.png")
     var image8:UIImage! = UIImage(named: "8.png")
+    var image82:UIImage! = UIImage(named: "82.png")
     var image9:UIImage! = UIImage(named: "9.png")
+    var image92:UIImage! = UIImage(named: "92.png")
     
     var timer:NSTimer!
     
@@ -50,7 +60,7 @@ class AlarmWaitViewController: UIViewController {
         //AppDelegateのインスタンスを取得
         var appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         // 設定した時刻を代入
-        timeSetLabel.text = appDelegate.message1
+        timeSetLabel.text = appDelegate.messageD
         //下2行で現在時刻の表示
         self.time()
         timer=NSTimer.scheduledTimerWithTimeInterval(1.0,target: self, selector: Selector("getNowTime"), userInfo: nil, repeats: true)
@@ -72,31 +82,31 @@ class AlarmWaitViewController: UIViewController {
     //現在時刻の取得
     func time() {
         hour2ImageView = UIImageView(frame: CGRectMake(0,0,60,72))
-        hour2ImageView.layer.position = CGPoint(x: self.view.frame.width/2 - 135, y: 150.0)
+        hour2ImageView.layer.position = CGPoint(x: self.view.frame.width/2 - 130, y: 150.0)
         self.view.addSubview(hour2ImageView)
         hour1ImageView = UIImageView(frame: CGRectMake(0,0,60,72))
-        hour1ImageView.layer.position = CGPoint(x: self.view.frame.width/2 - 90, y: 150.0)
+        hour1ImageView.layer.position = CGPoint(x: self.view.frame.width/2 - 95, y: 150.0)
         self.view.addSubview(hour1ImageView)
         minute2ImageView = UIImageView(frame: CGRectMake(0,0,60,72))
         minute2ImageView.layer.position = CGPoint(x: self.view.frame.width/2 - 22, y: 150.0)
         self.view.addSubview(minute2ImageView)
         minute1ImageView = UIImageView(frame: CGRectMake(0,0,60,72))
-        minute1ImageView.layer.position = CGPoint(x: self.view.frame.width/2 + 25, y: 150.0)
+        minute1ImageView.layer.position = CGPoint(x: self.view.frame.width/2 + 22, y: 150.0)
         self.view.addSubview(minute1ImageView)
         second2ImageView = UIImageView(frame: CGRectMake(0,0,60,72))
-        second2ImageView.layer.position = CGPoint(x: self.view.frame.width/2 + 90, y: 150.0)
+        second2ImageView.layer.position = CGPoint(x: self.view.frame.width/2 + 95, y: 150.0)
         self.view.addSubview(second2ImageView)
         second1ImageView = UIImageView(frame: CGRectMake(0,0,60,72))
-        second1ImageView.layer.position = CGPoint(x: self.view.frame.width/2 + 135, y: 150.0)
+        second1ImageView.layer.position = CGPoint(x: self.view.frame.width/2 + 140, y: 150.0)
         self.view.addSubview(second1ImageView)
         
         colon1ImageView = UIImageView(frame: CGRectMake(0,0,60,72))
-        colon1ImageView.layer.position = CGPoint(x: self.view.frame.width/2 - 55, y: 150.0)
-        colon1ImageView.image = UIImage(named: "コロン.png")
+        colon1ImageView.layer.position = CGPoint(x: self.view.frame.width/2 - 57, y: 150.0)
+        colon1ImageView.image = UIImage(named: "colon.png")
         self.view.addSubview(colon1ImageView)
         colon2ImageView = UIImageView(frame: CGRectMake(0,0,60,72))
-        colon2ImageView.layer.position = CGPoint(x: self.view.frame.width/2 + 60, y: 150.0)
-        colon2ImageView.image = UIImage(named: "コロン.png")
+        colon2ImageView.layer.position = CGPoint(x: self.view.frame.width/2 + 57, y: 150.0)
+        colon2ImageView.image = UIImage(named: "colon2.png")
         self.view.addSubview(colon2ImageView)
         
         
@@ -143,13 +153,8 @@ class AlarmWaitViewController: UIViewController {
         }
         draw()
         
-        let alarmTime:String = "\(hour2)" + "\(hour1)" + ":" + "\(minute2)" + "\(minute1)" + "." + "\(second2)" + "\(second1)"
-        if timeSetLabel.text == alarmTime {
-            
-            // AlarmViewControllerへ値の受け渡しと画面遷移
-            var appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-            appDelegate.message2 = timeSetLabel.text
-        
+        if timeSetLabel.text == "\(hour2)" + "\(hour1)" + ":" + "\(minute2)" + "\(minute1)" + ":" + "\(second2)" + "\(second1)" {
+            // AlarmViewControllerへ画面遷移
             let MyAlarmViewController = AlarmViewController()
             MyAlarmViewController.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
             self.presentViewController(MyAlarmViewController, animated: true, completion: nil)
@@ -162,65 +167,65 @@ class AlarmWaitViewController: UIViewController {
             hour2ImageView.image = image0
             break
         case 1:
-            hour2ImageView.image = image1
+            hour2ImageView.image = image12
             break
         case 2:
             hour2ImageView.image = image2
             break
         case 3:
-            hour2ImageView.image = image3
+            hour2ImageView.image = image32
             break
         case 4:
             hour2ImageView.image = image4
             break
         case 5:
-            hour2ImageView.image = image5
+            hour2ImageView.image = image52
             break
         case 6:
             hour2ImageView.image = image6
             break
         case 7:
-            hour2ImageView.image = image7
+            hour2ImageView.image = image72
             break
         case 8:
             hour2ImageView.image = image8
             break
         case 9:
-            hour2ImageView.image = image9
+            hour2ImageView.image = image92
             break
         default:
             break
         }
         switch(hour1){
         case 0:
-            hour1ImageView.image = image0
+            hour1ImageView.image = image02
             break
         case 1:
             hour1ImageView.image = image1
             break
         case 2:
-            hour1ImageView.image = image2
+            hour1ImageView.image = image22
             break
         case 3:
             hour1ImageView.image = image3
             break
         case 4:
-            hour1ImageView.image = image4
+            hour1ImageView.image = image42
             break
         case 5:
-            hour1ImageView.image = image5
+            hour1ImageView.image = image52
             break
         case 6:
             hour1ImageView.image = image6
             break
         case 7:
-            hour1ImageView.image = image7
+            hour1ImageView.image = image72
             break
         case 8:
             hour1ImageView.image = image8
             break
         case 9:
-            hour1ImageView.image = image9
+            hour1ImageView.image = image92
             break
         default:
             break
@@ -230,62 +235,62 @@ class AlarmWaitViewController: UIViewController {
             minute2ImageView.image = image0
             break
         case 1:
-            minute2ImageView.image = image1
+            minute2ImageView.image = image12
             break
         case 2:
             minute2ImageView.image = image2
             break
         case 3:
-            minute2ImageView.image = image3
+            minute2ImageView.image = image32
             break
         case 4:
             minute2ImageView.image = image4
             break
         case 5:
-            minute2ImageView.image = image5
+            minute2ImageView.image = image52
             break
         case 6:
             minute2ImageView.image = image6
             break
         case 7:
-            minute2ImageView.image = image7
+            minute2ImageView.image = image72
             break
         case 8:
             minute2ImageView.image = image8
             break
         case 9:
-            minute2ImageView.image = image9
+            minute2ImageView.image = image92
             break
         default:
             break
         }
         switch(minute1){
         case 0:
-            minute1ImageView.image = image0
+            minute1ImageView.image = image02
             break
         case 1:
             minute1ImageView.image = image1
             break
         case 2:
-            minute1ImageView.image = image2
+            minute1ImageView.image = image22
             break
         case 3:
             minute1ImageView.image = image3
             break
         case 4:
-            minute1ImageView.image = image4
+            minute1ImageView.image = image42
             break
         case 5:
             minute1ImageView.image = image5
             break
         case 6:
-            minute1ImageView.image = image6
+            minute1ImageView.image = image62
             break
         case 7:
             minute1ImageView.image = image7
             break
         case 8:
-            minute1ImageView.image = image8
+            minute1ImageView.image = image82
             break
         case 9:
             minute1ImageView.image = image9
@@ -298,62 +303,62 @@ class AlarmWaitViewController: UIViewController {
             second2ImageView.image = image0
             break
         case 1:
-            second2ImageView.image = image1
+            second2ImageView.image = image12
             break
         case 2:
             second2ImageView.image = image2
             break
         case 3:
-            second2ImageView.image = image3
+            second2ImageView.image = image32
             break
         case 4:
             second2ImageView.image = image4
             break
         case 5:
-            second2ImageView.image = image5
+            second2ImageView.image = image52
             break
         case 6:
             second2ImageView.image = image6
             break
         case 7:
-            second2ImageView.image = image7
+            second2ImageView.image = image72
             break
         case 8:
             second2ImageView.image = image8
             break
         case 9:
-            second2ImageView.image = image9
+            second2ImageView.image = image92
             break
         default:
             break
         }
         switch(second1){
         case 0:
-            second1ImageView.image = image0
+            second1ImageView.image = image02
             break
         case 1:
             second1ImageView.image = image1
             break
         case 2:
-            second1ImageView.image = image2
+            second1ImageView.image = image22
             break
         case 3:
             second1ImageView.image = image3
             break
         case 4:
-            second1ImageView.image = image4
+            second1ImageView.image = image42
             break
         case 5:
             second1ImageView.image = image5
             break
         case 6:
-            second1ImageView.image = image6
+            second1ImageView.image = image62
             break
         case 7:
             second1ImageView.image = image7
             break
         case 8:
-            second1ImageView.image = image8
+            second1ImageView.image = image82
             break
         case 9:
             second1ImageView.image = image9

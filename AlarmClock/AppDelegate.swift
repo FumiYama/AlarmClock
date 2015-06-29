@@ -14,6 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     var message1: String?
+    var messageD: String?
     
     var message2: String?
     

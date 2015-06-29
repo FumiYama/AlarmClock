@@ -140,7 +140,6 @@ class AlarmViewController: UIViewController , AVAudioPlayerDelegate {
         timeSetLabel.layer.position = CGPoint(x: self.view.frame.width/2, y: 150)
         
         self.view.addSubview(timeSetLabel)
-        
     }
     
     var appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
@@ -151,7 +150,7 @@ class AlarmViewController: UIViewController , AVAudioPlayerDelegate {
         
         self.timeLabel()
         
-        timeSetLabel.text = appDelegate.message2
+        timeSetLabel.text = appDelegate.message1
         
         self.myButtonAction0()
         self.myButtonAction1()
@@ -222,10 +221,10 @@ class AlarmViewController: UIViewController , AVAudioPlayerDelegate {
     }
     func myButtonAction0() {
         myButton0.backgroundColor = UIColor.blueColor()
-        myButton0.layer.position = CGPoint(x: self.view.bounds.width/4,y: self.view.bounds.height - 300)
-
+        myButton0.frame = CGRectMake(0, 0, self.view.bounds.width/4, self.view.bounds.width/4)
+        myButton0.layer.position = CGPoint(x: self.view.bounds.width/4,y: self.view.bounds.height  - 100 - self.view.bounds.width*2/4)
         myButton0.layer.masksToBounds = true
-        myButton0.layer.cornerRadius = 10
+        myButton0.layer.cornerRadius = 100
         myButton0.layer.borderWidth = 5
         myButton0.layer.borderColor = UIColor.blueColor().CGColor
         myButton0.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
@@ -235,9 +234,10 @@ class AlarmViewController: UIViewController , AVAudioPlayerDelegate {
     }
     func myButtonAction1() {
         myButton1.backgroundColor = UIColor.blueColor()
-        myButton1.layer.position = CGPoint(x: self.view.bounds.width/2,y: self.view.bounds.height - 300)
+        myButton1.frame = CGRectMake(0, 0, self.view.bounds.width/4, self.view.bounds.width/4)
+        myButton1.layer.position = CGPoint(x: self.view.bounds.width/2,y: self.view.bounds.height  - 100 - self.view.bounds.width*2/4)
         myButton1.layer.masksToBounds = true
-        myButton1.layer.cornerRadius = 10
+        myButton1.layer.cornerRadius = 100
         myButton1.layer.borderWidth = 5
         myButton1.layer.borderColor = UIColor.blueColor().CGColor
         myButton1.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
@@ -247,9 +247,10 @@ class AlarmViewController: UIViewController , AVAudioPlayerDelegate {
     }
     func myButtonAction2() {
         myButton2.backgroundColor = UIColor.blueColor()
-        myButton2.layer.position = CGPoint(x: self.view.bounds.width*3/4,y: self.view.bounds.height - 300)
+        myButton2.frame = CGRectMake(0, 0, self.view.bounds.width/4, self.view.bounds.width/4)
+        myButton2.layer.position = CGPoint(x: self.view.bounds.width*3/4,y: self.view.bounds.height - 100 - self.view.bounds.width*2/4)
         myButton2.layer.masksToBounds = true
-        myButton2.layer.cornerRadius = 10
+        myButton2.layer.cornerRadius = 100
         myButton2.layer.borderWidth = 5
         myButton2.layer.borderColor = UIColor.blueColor().CGColor
         myButton2.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
@@ -259,9 +260,10 @@ class AlarmViewController: UIViewController , AVAudioPlayerDelegate {
     }
     func myButtonAction3() {
         myButton3.backgroundColor = UIColor.blueColor()
-        myButton3.layer.position = CGPoint(x: self.view.bounds.width/4,y: self.view.bounds.height - 200)
+        myButton3.frame = CGRectMake(0, 0, self.view.bounds.width/4, self.view.bounds.width/4)
+        myButton3.layer.position = CGPoint(x: self.view.bounds.width/4,y: self.view.bounds.height - 100 - self.view.bounds.width/4)
         myButton3.layer.masksToBounds = true
-        myButton3.layer.cornerRadius = 10
+        myButton3.layer.cornerRadius = 100
         myButton3.layer.borderWidth = 5
         myButton3.layer.borderColor = UIColor.blueColor().CGColor
         myButton3.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
@@ -271,9 +273,10 @@ class AlarmViewController: UIViewController , AVAudioPlayerDelegate {
     }
     func myButtonAction4() {
         myButton4.backgroundColor = UIColor.blueColor()
-        myButton4.layer.position = CGPoint(x: self.view.bounds.width/2,y: self.view.bounds.height - 200)
+        myButton4.frame = CGRectMake(0, 0, self.view.bounds.width/4, self.view.bounds.width/4)
+        myButton4.layer.position = CGPoint(x: self.view.bounds.width/2,y: self.view.bounds.height - 100 - self.view.bounds.width/4)
         myButton4.layer.masksToBounds = true
-        myButton4.layer.cornerRadius = 10
+        myButton4.layer.cornerRadius = 100
         myButton4.layer.borderWidth = 5
         myButton4.layer.borderColor = UIColor.blueColor().CGColor
         myButton4.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
@@ -283,9 +286,10 @@ class AlarmViewController: UIViewController , AVAudioPlayerDelegate {
     }
     func myButtonAction5() {
         myButton5.backgroundColor = UIColor.blueColor()
-        myButton5.layer.position = CGPoint(x: self.view.bounds.width*3/4,y: self.view.bounds.height - 200)
+        myButton5.frame = CGRectMake(0, 0, self.view.bounds.width/4, self.view.bounds.width/4)
+        myButton5.layer.position = CGPoint(x: self.view.bounds.width*3/4,y: self.view.bounds.height - 100 - self.view.bounds.width/4)
         myButton5.layer.masksToBounds = true
-        myButton5.layer.cornerRadius = 10
+        myButton5.layer.cornerRadius = 100
         myButton5.layer.borderWidth = 5
         myButton5.layer.borderColor = UIColor.blueColor().CGColor
         myButton5.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
@@ -295,9 +299,10 @@ class AlarmViewController: UIViewController , AVAudioPlayerDelegate {
     }
     func myButtonAction6() {
         myButton6.backgroundColor = UIColor.blueColor()
+        myButton6.frame = CGRectMake(0, 0, self.view.bounds.width/4, self.view.bounds.width/4)
         myButton6.layer.position = CGPoint(x: self.view.bounds.width/4, y: self.view.bounds.height - 100)
         myButton6.layer.masksToBounds = true
-        myButton6.layer.cornerRadius = 10
+        myButton6.layer.cornerRadius = 100
         myButton6.layer.borderWidth = 5
         myButton6.layer.borderColor = UIColor.blueColor().CGColor
         myButton6.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
@@ -307,9 +312,10 @@ class AlarmViewController: UIViewController , AVAudioPlayerDelegate {
     }
     func myButtonAction7() {
         myButton7.backgroundColor = UIColor.blueColor()
+        myButton7.frame = CGRectMake(0, 0, self.view.bounds.width/4, self.view.bounds.width/4)
         myButton7.layer.position = CGPoint(x: self.view.bounds.width/2,y: self.view.bounds.height - 100)
         myButton7.layer.masksToBounds = true
-        myButton7.layer.cornerRadius = 10
+        myButton7.layer.cornerRadius = 100
         myButton7.layer.borderWidth = 5
         myButton7.layer.borderColor = UIColor.blueColor().CGColor
         myButton7.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
@@ -319,9 +325,10 @@ class AlarmViewController: UIViewController , AVAudioPlayerDelegate {
     }
     func myButtonAction8() {
         myButton8.backgroundColor = UIColor.blueColor()
+        myButton8.frame = CGRectMake(0, 0, self.view.bounds.width/4, self.view.bounds.width/4)
         myButton8.layer.position = CGPoint(x: self.view.bounds.width*3/4,y: self.view.bounds.height - 100)
         myButton8.layer.masksToBounds = true
-        myButton8.layer.cornerRadius = 10
+        myButton8.layer.cornerRadius = 100
         myButton8.layer.borderWidth = 5
         myButton8.layer.borderColor = UIColor.blueColor().CGColor
         myButton8.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)

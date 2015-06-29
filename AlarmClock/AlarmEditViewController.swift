@@ -95,6 +95,7 @@ class AlarmEditViewController: UIViewController {
         let dateFormatter = NSDateFormatter()
         dateFormatter.locale = NSLocale(localeIdentifier: "ja_JP") // ロケールの設定
         dateFormatter.dateFormat = "HH:mm" // 日付フォーマットの設定
+//        myDateFormatter.timeStyle = .ShortStyle
         var thisDate = dateFormatter.stringFromDate(now)
         return thisDate
     }
@@ -102,7 +103,7 @@ class AlarmEditViewController: UIViewController {
     func datePickerChanged(datePicker: UIDatePicker) {
         // フォーマットを生成
         let myDateFormatter = NSDateFormatter()
-        myDateFormatter.dateFormat = "HH:mm"
+        myDateFormatter.dateFormat = "HH:mm.00"
         // 日付をフォーマットに則って取得.
         let mySelectedDate = myDateFormatter.stringFromDate(datePicker.date)
         timeSetLabel.text = mySelectedDate as String

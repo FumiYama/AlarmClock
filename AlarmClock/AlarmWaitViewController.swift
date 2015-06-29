@@ -10,6 +10,9 @@ import Foundation
 import UIKit
 
 class AlarmWaitViewController: UIViewController {
+    
+    var timeSetLabel: UILabel = UILabel(frame: CGRectMake(50, 50, 250, 200))
+    
     var hour2:Int!
     var hour1:Int!
     var minute2:Int!
@@ -42,35 +45,19 @@ class AlarmWaitViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.blackColor()
-        
-        
-        
         self.timeLabel()
         
         //AppDelegateのインスタンスを取得
         var appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         // 設定した時刻を代入
         timeSetLabel.text = appDelegate.message1
-        
         //下2行で現在時刻の表示
-        self.time2()
-        timer=NSTimer.scheduledTimerWithTimeInterval(1.0,target: self,
-                                                        selector: Selector("time"),
-                                                        userInfo: nil,
-                                                        repeats: true)
-        
-//        self.alarmTimeLabelFunc()
-        println(timeSetLabel.text)
-//        if timeSetLabel.text == alarmTimeLabel.text {
-//            println("aaaa")
-//        }
+        self.time()
+        timer=NSTimer.scheduledTimerWithTimeInterval(1.0,target: self, selector: Selector("getNowTime"), userInfo: nil, repeats: true)
     }
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
-    var timeSetLabel: UILabel = UILabel(frame: CGRectMake(50, 50, 250, 200))
     
     func timeLabel() {
         timeSetLabel.textAlignment = NSTextAlignment.Center
@@ -82,34 +69,8 @@ class AlarmWaitViewController: UIViewController {
         self.view.addSubview(timeSetLabel)
     }
     
-//    var alarmTimeLabel: UILabel = UILabel(frame: CGRectMake(50, 50, 250, 200))
-//    
-//    func alarmTimeLabelFunc() {
-//        alarmTimeLabel.textAlignment = NSTextAlignment.Center
-//        alarmTimeLabel.text = "\(self.getNowTime())"
-//        alarmTimeLabel.textColor = UIColor.purpleColor()
-//        alarmTimeLabel.backgroundColor = UIColor.clearColor()
-//        alarmTimeLabel.font = UIFont.systemFontOfSize(40)
-//        alarmTimeLabel.layer.masksToBounds = true
-//        alarmTimeLabel.layer.position = CGPoint(x: self.view.frame.width/2, y: 50)
-//        
-//        self.view.addSubview(alarmTimeLabel)
-//    }
-//    // 現在時刻取得
-//    func getNowTime() ->NSString {
-//        let now = NSDate()
-//        let dateFormatter = NSDateFormatter()
-//        dateFormatter.locale = NSLocale(localeIdentifier: "ja_JP") // ロケールの設定
-//        dateFormatter.dateFormat = "MM/dd HH:mm" // 日付フォーマットの設定
-//        var thisDate = dateFormatter.stringFromDate(now)
-//        return thisDate
-//    }
-//    
-    
-    
-    
     //現在時刻の取得
-    func time2() {
+    func time() {
         hour2ImageView = UIImageView(frame: CGRectMake(0,0,60,72))
         hour2ImageView.layer.position = CGPoint(x: self.view.frame.width/2 - 135, y: 150.0)
         self.view.addSubview(hour2ImageView)
@@ -129,7 +90,6 @@ class AlarmWaitViewController: UIViewController {
         second1ImageView.layer.position = CGPoint(x: self.view.frame.width/2 + 135, y: 150.0)
         self.view.addSubview(second1ImageView)
         
-        
         colon1ImageView = UIImageView(frame: CGRectMake(0,0,60,72))
         colon1ImageView.layer.position = CGPoint(x: self.view.frame.width/2 - 55, y: 150.0)
         colon1ImageView.image = UIImage(named: "コロン.png")
@@ -138,8 +98,10 @@ class AlarmWaitViewController: UIViewController {
         colon2ImageView.layer.position = CGPoint(x: self.view.frame.width/2 + 60, y: 150.0)
         colon2ImageView.image = UIImage(named: "コロン.png")
         self.view.addSubview(colon2ImageView)
+        
+        
     }
-    func time(){
+    func getNowTime(){
         let myDate: NSDate = NSDate()
         //カレンダーを取得.
         let myCalendar: NSCalendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
@@ -149,8 +111,8 @@ class AlarmWaitViewController: UIViewController {
             NSCalendarUnit.CalendarUnitDay    |
             NSCalendarUnit.CalendarUnitHour   |
             NSCalendarUnit.CalendarUnitMinute |
-            NSCalendarUnit.CalendarUnitSecond,
-            fromDate: myDate)
+            NSCalendarUnit.CalendarUnitSecond, fromDate: myDate)
+        
         var hour:Int = myComponetns.hour
         var minute:Int = myComponetns.minute
         var second:Int = myComponetns.second
@@ -160,7 +122,7 @@ class AlarmWaitViewController: UIViewController {
             hour1 = hour - (hour/10)*10
         }
         else {
-            hour2 = 0
+            hour2 = 0;
             hour1 = hour
         }
         if (minute>9) {
@@ -180,7 +142,20 @@ class AlarmWaitViewController: UIViewController {
             second1 = second;
         }
         draw()
+        
+        let alarmTime:String = "\(hour2)" + "\(hour1)" + ":" + "\(minute2)" + "\(minute1)" + "." + "\(second2)" + "\(second1)"
+        if timeSetLabel.text == alarmTime {
+            
+            // AlarmViewControllerへ値の受け渡しと画面遷移
+            var appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+            appDelegate.message2 = timeSetLabel.text
+        
+            let MyAlarmViewController = AlarmViewController()
+            MyAlarmViewController.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
+            self.presentViewController(MyAlarmViewController, animated: true, completion: nil)
+        }
     }
+    
     func draw(){
         switch(hour2){
         case 0:

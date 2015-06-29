@@ -42,6 +42,7 @@ class AlarmViewController: UIViewController , AVAudioPlayerDelegate {
             myButton2.layer.borderColor = UIColor.greenColor().CGColor
             myButton2.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
             myButton2.backgroundColor = UIColor.greenColor()
+            myButton2.setTitle("Push", forState: UIControlState.Normal)
         case 3:
             myButton3.layer.borderColor = UIColor.greenColor().CGColor
             myButton3.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
@@ -128,16 +129,29 @@ class AlarmViewController: UIViewController , AVAudioPlayerDelegate {
             break
         }
     }
-  
+    
+    var timeSetLabel: UILabel = UILabel(frame: CGRectMake(50, 50, 250, 200))
+    func timeLabel() {
+        timeSetLabel.textAlignment = NSTextAlignment.Center
+        timeSetLabel.textColor = UIColor.purpleColor()
+        timeSetLabel.backgroundColor = UIColor.clearColor()
+        timeSetLabel.font = UIFont.systemFontOfSize(40)
+        timeSetLabel.layer.masksToBounds = true
+        timeSetLabel.layer.position = CGPoint(x: self.view.frame.width/2, y: 150)
+        
+        self.view.addSubview(timeSetLabel)
+        
+    }
+    
+    var appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.blackColor()
         
-//        self.timeLabel()
-//        var appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-//        //AppDelegateのインスタンスを取得
-//        var message = appDelegate.message1
-//        timeSetLabel.text = message
+        self.timeLabel()
+        
+        timeSetLabel.text = appDelegate.message2
         
         self.myButtonAction0()
         self.myButtonAction1()
@@ -150,13 +164,9 @@ class AlarmViewController: UIViewController , AVAudioPlayerDelegate {
         self.myButtonAction8()
         
         self.audio()
-//        println(message)
-        println(random)
         
         self.colorChange()
-    
-    
-            }
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -172,6 +182,10 @@ class AlarmViewController: UIViewController , AVAudioPlayerDelegate {
         myAudioPlayer.volume = 0.2
         myAudioPlayer.play()
     }
+    func audioLabel() {
+        
+        
+    }
     
     //soundボタンがタップされた時に呼ばれるメソッド.
     func onClickSoundStopButton(sender: UIButton) {
@@ -179,18 +193,16 @@ class AlarmViewController: UIViewController , AVAudioPlayerDelegate {
             if random == sender.tag {
                 correctAnser++
             } else {
-                var volume = myAudioPlayer.volume + 0.2
-                if volume > 1.0 {
-                    volume = 1.0
-                }
+                var volume = myAudioPlayer.volume + 0.3
                 myAudioPlayer.volume = volume
+                
             }
             colorDefault()
             colorChange()
         } else if correctAnser == 4 {
             if random == sender.tag {
-                colorDefault()
                 myAudioPlayer.pause()
+                colorDefault()
                 let alert = UIAlertView()
                 alert.title = "これであなたも脳みそ全開！"
                 alert.message = "おはようございます♪"
@@ -201,43 +213,13 @@ class AlarmViewController: UIViewController , AVAudioPlayerDelegate {
                 myMainViewController.modalTransitionStyle = UIModalTransitionStyle.PartialCurl
                 self.presentViewController(myMainViewController, animated: true, completion: nil)
             } else {
-                var volume = myAudioPlayer.volume + 0.2
-                if volume > 1.0 {
-                    volume = 1.0
-                }
+                var volume = myAudioPlayer.volume + 0.3
                 myAudioPlayer.volume = volume
+                colorDefault()
+                colorChange()
             }
-            colorDefault()
-            colorChange()
         }
     }
-    
-    internal func finishAlarmButton(sender: UIButton){
-        // 遷移するViewを定義する.
-        let myMainViewController: UIViewController = mainViewController()
-        // アニメーションを設定する.
-        myMainViewController.modalTransitionStyle = UIModalTransitionStyle.PartialCurl
-        // Viewの移動する.
-        self.presentViewController(myMainViewController, animated: true, completion: nil)
-    }
-    
-//    
-//    var timeSetLabel: UILabel = UILabel(frame: CGRectMake(50, 50, 250, 200))
-//    
-//    
-//    
-//    func timeLabel() {
-//        timeSetLabel.textAlignment = NSTextAlignment.Center
-//        timeSetLabel.textColor = UIColor.purpleColor()
-//        timeSetLabel.backgroundColor = UIColor.clearColor()
-//        timeSetLabel.font = UIFont.systemFontOfSize(40)
-//        timeSetLabel.layer.masksToBounds = true
-//        timeSetLabel.layer.position = CGPoint(x: self.view.frame.width/2, y: 150)
-//        
-//        self.view.addSubview(timeSetLabel)
-//        
-//    }
-    
     func myButtonAction0() {
         myButton0.backgroundColor = UIColor.blueColor()
         myButton0.layer.position = CGPoint(x: self.view.bounds.width/4,y: self.view.bounds.height - 300)
@@ -252,7 +234,6 @@ class AlarmViewController: UIViewController , AVAudioPlayerDelegate {
         self.view.addSubview(myButton0)
     }
     func myButtonAction1() {
-        
         myButton1.backgroundColor = UIColor.blueColor()
         myButton1.layer.position = CGPoint(x: self.view.bounds.width/2,y: self.view.bounds.height - 300)
         myButton1.layer.masksToBounds = true

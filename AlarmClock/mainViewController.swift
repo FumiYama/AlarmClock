@@ -89,11 +89,5 @@ class mainViewController: UIViewController, MainViewControllerDelegate {
     func timeSet(text: String) {
         timeSetLabel.text = text
     }
-    
-    
-    
-    
-    
-    
 }
 

@@ -15,6 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var message1: String?
     
+    var message2: String?
     
     
     

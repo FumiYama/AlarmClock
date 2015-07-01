@@ -16,7 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var message1: String?
     var messageD: String?
     
-    var message2: String?
+    var messageS: String?
+    
     
     
     
@@ -28,8 +29,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let myFirstMainViewController: mainViewController = mainViewController()
         
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        self.window?.backgroundColor = UIColor.groupTableViewBackgroundColor()
-        self.window?.rootViewController = mainViewController()
+        self.window?.backgroundColor = UIColor.blackColor()
+//        self.window?.backgroundColor = UIColor.groupTableViewBackgroundColor()
+        self.window?.rootViewController = MusicSettingViewController()
         
         self.window?.makeKeyAndVisible()
         

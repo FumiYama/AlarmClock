@@ -15,7 +15,7 @@ class AlarmEditViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+
         self.alarmSetButton()
         self.alarmCancelButton()
         self.myDatePicker()
@@ -60,22 +60,22 @@ class AlarmEditViewController: UIViewController {
         myDatePicker.frame = CGRectMake(0, self.view.bounds.height/4, 0, 0)
         myDatePicker.timeZone = NSTimeZone.localTimeZone()
         myDatePicker.backgroundColor = UIColor.groupTableViewBackgroundColor()
-        myDatePicker.layer.cornerRadius = 5.0
+//        myDatePicker.font = UIFont(name: "Chalkduster")
+//        myDatePicker.textColor = UIColor.groupTableViewBackgroundColor()
         myDatePicker.datePickerMode = UIDatePickerMode.Time
         myDatePicker.addTarget(self, action: Selector("datePickerChanged:"), forControlEvents: UIControlEvents.ValueChanged)
         
         self.view.addSubview(myDatePicker)
     }
     // クラス内どこでも使えるようになるので、グローバル変数としてtimeSetLabelを宣言。ローカルだとそのメソッド内でしか使うことができない。
-    let timeSetLabel = UILabel(frame: CGRectMake(50, 50, 200, 40))
+    let timeSetLabel = UILabel(frame: CGRectMake(50, 50, 250, 70))
     var alarmTime :String?
     
     func timeSettingLabel() {
         timeSetLabel.textAlignment = NSTextAlignment.Center
         timeSetLabel.text = "\(self.getDate())"
-        timeSetLabel.layer.borderColor = UIColor.purpleColor().CGColor
-        timeSetLabel.layer.borderWidth = 2
-        timeSetLabel.layer.cornerRadius = 10
+        timeSetLabel.font = UIFont(name: "Chalkduster", size:60.0)
+        timeSetLabel.textColor = UIColor.groupTableViewBackgroundColor()
         timeSetLabel.layer.position = CGPoint(x: self.view.bounds.width/2,y: self.view.bounds.height - 150)
         self.view.addSubview(timeSetLabel)
     }

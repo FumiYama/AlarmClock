@@ -11,7 +11,7 @@ import UIKit
 
 class AlarmWaitViewController: UIViewController {
     
-    var timeSetLabel: UILabel = UILabel(frame: CGRectMake(50, 50, 250, 200))
+    var timeSetLabel: UILabel = UILabel(frame: CGRectMake(50, 50, 300, 230))
     
     var hour2:Int!
     var hour1:Int!
@@ -54,7 +54,7 @@ class AlarmWaitViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.blackColor()
+        
         self.timeLabel()
         
         //AppDelegateのインスタンスを取得
@@ -64,6 +64,21 @@ class AlarmWaitViewController: UIViewController {
         //下2行で現在時刻の表示
         self.time()
         timer=NSTimer.scheduledTimerWithTimeInterval(1.0,target: self, selector: Selector("getNowTime"), userInfo: nil, repeats: true)
+        
+        let currentTimeLabel: UILabel = UILabel(frame: CGRectMake(0, 0, 250, 60))
+        currentTimeLabel.font = UIFont(name: "Chalkduster", size:30)
+        currentTimeLabel.text = "CurrentTime"
+        currentTimeLabel.textColor = UIColor.whiteColor()
+        currentTimeLabel.layer.position = CGPoint(x: self.view.frame.width/2, y: self.view.frame.height - self.view.frame.width/2 - 50)
+        self.view.addSubview(currentTimeLabel)
+
+        let alarmTimeLabel: UILabel = UILabel(frame: CGRectMake(0, 0, 250, 60))
+        alarmTimeLabel.font = UIFont(name: "Copperplate", size:30)
+        alarmTimeLabel.textColor = UIColor.orangeColor()
+        alarmTimeLabel.text = "AlarmTime"
+        alarmTimeLabel.layer.position = CGPoint(x: self.view.frame.width/2, y: 130)
+        self.view.addSubview(alarmTimeLabel)
+        
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -71,45 +86,42 @@ class AlarmWaitViewController: UIViewController {
     
     func timeLabel() {
         timeSetLabel.textAlignment = NSTextAlignment.Center
-        timeSetLabel.textColor = UIColor.purpleColor()
-        timeSetLabel.backgroundColor = UIColor.clearColor()
-        timeSetLabel.font = UIFont.systemFontOfSize(40)
+        timeSetLabel.font = UIFont(name: "Chalkduster", size:60.0)
+        timeSetLabel.textColor = UIColor.groupTableViewBackgroundColor()
         timeSetLabel.layer.masksToBounds = true
-        timeSetLabel.layer.position = CGPoint(x: self.view.frame.width/2, y: 350)
+        timeSetLabel.layer.position = CGPoint(x: self.view.frame.width/2, y: self.view.frame.height - self.view.frame.width/2)
         self.view.addSubview(timeSetLabel)
     }
     
     //現在時刻の取得
     func time() {
         hour2ImageView = UIImageView(frame: CGRectMake(0,0,60,72))
-        hour2ImageView.layer.position = CGPoint(x: self.view.frame.width/2 - 130, y: 150.0)
+        hour2ImageView.layer.position = CGPoint(x: self.view.frame.width/2 - 135, y: 200.0)
         self.view.addSubview(hour2ImageView)
         hour1ImageView = UIImageView(frame: CGRectMake(0,0,60,72))
-        hour1ImageView.layer.position = CGPoint(x: self.view.frame.width/2 - 95, y: 150.0)
+        hour1ImageView.layer.position = CGPoint(x: self.view.frame.width/2 - 95, y: 200.0)
         self.view.addSubview(hour1ImageView)
         minute2ImageView = UIImageView(frame: CGRectMake(0,0,60,72))
-        minute2ImageView.layer.position = CGPoint(x: self.view.frame.width/2 - 22, y: 150.0)
+        minute2ImageView.layer.position = CGPoint(x: self.view.frame.width/2 - 22, y: 200.0)
         self.view.addSubview(minute2ImageView)
         minute1ImageView = UIImageView(frame: CGRectMake(0,0,60,72))
-        minute1ImageView.layer.position = CGPoint(x: self.view.frame.width/2 + 22, y: 150.0)
+        minute1ImageView.layer.position = CGPoint(x: self.view.frame.width/2 + 22, y: 200.0)
         self.view.addSubview(minute1ImageView)
         second2ImageView = UIImageView(frame: CGRectMake(0,0,60,72))
-        second2ImageView.layer.position = CGPoint(x: self.view.frame.width/2 + 95, y: 150.0)
+        second2ImageView.layer.position = CGPoint(x: self.view.frame.width/2 + 95, y: 200.0)
         self.view.addSubview(second2ImageView)
         second1ImageView = UIImageView(frame: CGRectMake(0,0,60,72))
-        second1ImageView.layer.position = CGPoint(x: self.view.frame.width/2 + 140, y: 150.0)
+        second1ImageView.layer.position = CGPoint(x: self.view.frame.width/2 + 140, y: 200.0)
         self.view.addSubview(second1ImageView)
         
         colon1ImageView = UIImageView(frame: CGRectMake(0,0,60,72))
-        colon1ImageView.layer.position = CGPoint(x: self.view.frame.width/2 - 57, y: 150.0)
+        colon1ImageView.layer.position = CGPoint(x: self.view.frame.width/2 - 57, y: 200.0)
         colon1ImageView.image = UIImage(named: "colon.png")
         self.view.addSubview(colon1ImageView)
         colon2ImageView = UIImageView(frame: CGRectMake(0,0,60,72))
-        colon2ImageView.layer.position = CGPoint(x: self.view.frame.width/2 + 57, y: 150.0)
+        colon2ImageView.layer.position = CGPoint(x: self.view.frame.width/2 + 57, y: 200.0)
         colon2ImageView.image = UIImage(named: "colon2.png")
         self.view.addSubview(colon2ImageView)
-        
-        
     }
     func getNowTime(){
         let myDate: NSDate = NSDate()

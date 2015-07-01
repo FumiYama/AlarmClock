@@ -11,6 +11,10 @@ import AVFoundation
 
 class AlarmViewController: UIViewController , AVAudioPlayerDelegate {
     
+    var appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    var soundName: NSString!
+    
+    
     let myButton0 = UIButton(frame: CGRectMake(0,0,90,90))
     let myButton1 = UIButton(frame: CGRectMake(0,0,90,90))
     let myButton2 = UIButton(frame: CGRectMake(0,0,90,90))
@@ -130,27 +134,26 @@ class AlarmViewController: UIViewController , AVAudioPlayerDelegate {
         }
     }
     
-    var timeSetLabel: UILabel = UILabel(frame: CGRectMake(50, 50, 250, 200))
+    var timeSetLabel: UILabel = UILabel(frame: CGRectMake(50, 50, 300, 200))
     func timeLabel() {
         timeSetLabel.textAlignment = NSTextAlignment.Center
-        timeSetLabel.textColor = UIColor.purpleColor()
-        timeSetLabel.backgroundColor = UIColor.clearColor()
-        timeSetLabel.font = UIFont.systemFontOfSize(40)
+        timeSetLabel.font = UIFont(name: "Chalkduster", size:60.0)
+        timeSetLabel.textColor = UIColor.groupTableViewBackgroundColor()
         timeSetLabel.layer.masksToBounds = true
         timeSetLabel.layer.position = CGPoint(x: self.view.frame.width/2, y: 150)
         
         self.view.addSubview(timeSetLabel)
     }
-    
-    var appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.blackColor()
         
         self.timeLabel()
         
         timeSetLabel.text = appDelegate.message1
+        soundName = appDelegate.messageS
+        println(soundName)
         
         self.myButtonAction0()
         self.myButtonAction1()
@@ -174,7 +177,7 @@ class AlarmViewController: UIViewController , AVAudioPlayerDelegate {
     
     func audio() {
         //再生する音源のURLを生成
-        let soundFilePath = NSBundle.mainBundle().pathForResource("Spring_In_My_Step", ofType: "mp3")!
+        let soundFilePath = NSBundle.mainBundle().pathForResource("\(soundName)", ofType: "mp3")!
         let fileURL : NSURL = NSURL(fileURLWithPath: soundFilePath as String)!
         // AVAudioPlayerのインスタンス化
         myAudioPlayer = AVAudioPlayer(contentsOfURL: fileURL, error: nil)
@@ -194,7 +197,6 @@ class AlarmViewController: UIViewController , AVAudioPlayerDelegate {
             } else {
                 var volume = myAudioPlayer.volume + 0.3
                 myAudioPlayer.volume = volume
-                
             }
             colorDefault()
             colorChange()

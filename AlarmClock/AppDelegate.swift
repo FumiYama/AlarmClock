@@ -13,9 +13,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     
+    // AlarmSetting-> main への時間
     var message1: String?
+    // AlarmSetting -> AlarmView への timeSetLabelの詳細
     var messageD: String?
-    
+    // musicSetting -> AlarmView のsoundName
     var messageS: String?
     
     
@@ -31,7 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         self.window?.backgroundColor = UIColor.blackColor()
 //        self.window?.backgroundColor = UIColor.groupTableViewBackgroundColor()
-        self.window?.rootViewController = MusicSettingViewController()
+        self.window?.rootViewController = mainViewController()
         
         self.window?.makeKeyAndVisible()
         

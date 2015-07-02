@@ -14,7 +14,6 @@ class AlarmViewController: UIViewController , AVAudioPlayerDelegate {
     var appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     var soundName: NSString!
     
-    
     let myButton0 = UIButton(frame: CGRectMake(0,0,90,90))
     let myButton1 = UIButton(frame: CGRectMake(0,0,90,90))
     let myButton2 = UIButton(frame: CGRectMake(0,0,90,90))
@@ -152,7 +151,7 @@ class AlarmViewController: UIViewController , AVAudioPlayerDelegate {
         self.timeLabel()
         
         timeSetLabel.text = appDelegate.message1
-        soundName = appDelegate.messageS
+        
         println(soundName)
         
         self.myButtonAction0()
@@ -176,6 +175,12 @@ class AlarmViewController: UIViewController , AVAudioPlayerDelegate {
     }
     
     func audio() {
+        if soundName != nil {
+            soundName = appDelegate.messageS
+        } else {
+            soundName = "Bike_Rides"
+        }
+        
         //再生する音源のURLを生成
         let soundFilePath = NSBundle.mainBundle().pathForResource("\(soundName)", ofType: "mp3")!
         let fileURL : NSURL = NSURL(fileURLWithPath: soundFilePath as String)!
@@ -187,6 +192,23 @@ class AlarmViewController: UIViewController , AVAudioPlayerDelegate {
     func audioLabel() {
         
         
+    }
+    // Backボタンの作成
+    func alarmCancelButton(){
+        
+        let alarmCancelButton = UIButton(frame: CGRectMake(0, 500, 100, 100))
+        let img = UIImage(named: "Entypo_e712(1)_128.png") as UIImage?
+        alarmCancelButton.setImage(img, forState: .Normal)
+        alarmCancelButton.layer.position = CGPoint(x: self.view.frame.width/4, y: self.view.frame.width/4)
+        alarmCancelButton.addTarget(self, action: "onClickMainMyButton:", forControlEvents: .TouchUpInside)
+        
+        self.view.addSubview(alarmCancelButton)
+    }
+    // 画面遷移(Back)のための処理
+    internal func onClickMainMyButton(sender: UIButton) {
+        let mainMyViewController = mainViewController()
+        mainMyViewController.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
+        self.presentViewController(mainMyViewController, animated: true, completion: nil)
     }
     
     //soundボタンがタップされた時に呼ばれるメソッド.

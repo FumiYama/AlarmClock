@@ -22,6 +22,7 @@ class MusicSettingViewController: UIViewController, UIPickerViewDelegate, UIPick
         
         musicSettingCancelButton()
         musicSettingButton()
+        self.soundLabel()
         
         self.mySoundPicker()
 
@@ -30,7 +31,7 @@ class MusicSettingViewController: UIViewController, UIPickerViewDelegate, UIPick
     //pickerViewの作成
     func mySoundPicker() {
         soundPicker = UIPickerView()
-        soundPicker.frame = CGRectMake(0, self.view.bounds.height/4, 0, 0)
+        soundPicker.frame = CGRectMake(0, self.view.bounds.height/2, 0, 0)
         soundPicker.backgroundColor = UIColor.groupTableViewBackgroundColor()
         soundPicker.delegate = self
         soundPicker.dataSource = self
@@ -70,6 +71,16 @@ class MusicSettingViewController: UIViewController, UIPickerViewDelegate, UIPick
         soundAudioPlayer.play()
     }
     
+    var label: UILabel = UILabel(frame: CGRectMake(50, 50, 200, 100))
+    func soundLabel() {
+        label.textColor = UIColor.whiteColor()
+        label.text = "SelectSound"
+        label.font = UIFont(name: "Chalkduster", size:60.0)
+        label.textAlignment = NSTextAlignment.Center
+        label.layer.position = CGPoint(x: self.view.bounds.width/2, y: self.view.bounds.height + 50)
+        self.view.addSubview(label)
+        
+    }
     
     
     override func didReceiveMemoryWarning() {

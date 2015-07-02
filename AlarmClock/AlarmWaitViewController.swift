@@ -57,6 +57,8 @@ class AlarmWaitViewController: UIViewController {
         
         self.timeLabel()
         
+        self.alarmCancelButton()
+        
         //AppDelegateのインスタンスを取得
         var appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         // 設定した時刻を代入
@@ -67,7 +69,7 @@ class AlarmWaitViewController: UIViewController {
         
         let currentTimeLabel: UILabel = UILabel(frame: CGRectMake(0, 0, 250, 60))
         currentTimeLabel.font = UIFont(name: "Chalkduster", size:30)
-        currentTimeLabel.text = "CurrentTime"
+        currentTimeLabel.text = "AlarmTime"
         currentTimeLabel.textColor = UIColor.whiteColor()
         currentTimeLabel.layer.position = CGPoint(x: self.view.frame.width/2, y: self.view.frame.height - self.view.frame.width/2 - 50)
         self.view.addSubview(currentTimeLabel)
@@ -75,8 +77,8 @@ class AlarmWaitViewController: UIViewController {
         let alarmTimeLabel: UILabel = UILabel(frame: CGRectMake(0, 0, 250, 60))
         alarmTimeLabel.font = UIFont(name: "Copperplate", size:30)
         alarmTimeLabel.textColor = UIColor.orangeColor()
-        alarmTimeLabel.text = "AlarmTime"
-        alarmTimeLabel.layer.position = CGPoint(x: self.view.frame.width/2, y: 130)
+        alarmTimeLabel.text = "CurrentTime"
+        alarmTimeLabel.layer.position = CGPoint(x: self.view.frame.width/2, y: self.view.frame.width/3 + 50)
         self.view.addSubview(alarmTimeLabel)
         
     }
@@ -93,33 +95,51 @@ class AlarmWaitViewController: UIViewController {
         self.view.addSubview(timeSetLabel)
     }
     
+    // Backボタンの作成
+    func alarmCancelButton(){
+        
+        let alarmCancelButton = UIButton(frame: CGRectMake(0, 500, 100, 100))
+        let img = UIImage(named: "Entypo_e712(1)_128.png") as UIImage?
+        alarmCancelButton.setImage(img, forState: .Normal)
+        alarmCancelButton.layer.position = CGPoint(x: self.view.frame.width/4, y: self.view.frame.width/4)
+        alarmCancelButton.addTarget(self, action: "onClickMainMyButton:", forControlEvents: .TouchUpInside)
+        
+        self.view.addSubview(alarmCancelButton)
+    }
+    // 画面遷移(Back)のための処理
+    internal func onClickMainMyButton(sender: UIButton) {
+        let mainMyViewController = mainViewController()
+        mainMyViewController.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
+        self.presentViewController(mainMyViewController, animated: true, completion: nil)
+    }
+    
     //現在時刻の取得
     func time() {
         hour2ImageView = UIImageView(frame: CGRectMake(0,0,60,72))
-        hour2ImageView.layer.position = CGPoint(x: self.view.frame.width/2 - 135, y: 200.0)
+        hour2ImageView.layer.position = CGPoint(x: self.view.frame.width/2 - 135, y: self.view.frame.width/3 + 100)
         self.view.addSubview(hour2ImageView)
         hour1ImageView = UIImageView(frame: CGRectMake(0,0,60,72))
-        hour1ImageView.layer.position = CGPoint(x: self.view.frame.width/2 - 95, y: 200.0)
+        hour1ImageView.layer.position = CGPoint(x: self.view.frame.width/2 - 95, y: self.view.frame.width/3 + 100)
         self.view.addSubview(hour1ImageView)
         minute2ImageView = UIImageView(frame: CGRectMake(0,0,60,72))
-        minute2ImageView.layer.position = CGPoint(x: self.view.frame.width/2 - 22, y: 200.0)
+        minute2ImageView.layer.position = CGPoint(x: self.view.frame.width/2 - 22, y: self.view.frame.width/3 + 100)
         self.view.addSubview(minute2ImageView)
         minute1ImageView = UIImageView(frame: CGRectMake(0,0,60,72))
-        minute1ImageView.layer.position = CGPoint(x: self.view.frame.width/2 + 22, y: 200.0)
+        minute1ImageView.layer.position = CGPoint(x: self.view.frame.width/2 + 22, y: self.view.frame.width/3 + 100)
         self.view.addSubview(minute1ImageView)
         second2ImageView = UIImageView(frame: CGRectMake(0,0,60,72))
-        second2ImageView.layer.position = CGPoint(x: self.view.frame.width/2 + 95, y: 200.0)
+        second2ImageView.layer.position = CGPoint(x: self.view.frame.width/2 + 95, y: self.view.frame.width/3 + 100)
         self.view.addSubview(second2ImageView)
         second1ImageView = UIImageView(frame: CGRectMake(0,0,60,72))
-        second1ImageView.layer.position = CGPoint(x: self.view.frame.width/2 + 140, y: 200.0)
+        second1ImageView.layer.position = CGPoint(x: self.view.frame.width/2 + 140, y: self.view.frame.width/3 + 100)
         self.view.addSubview(second1ImageView)
         
         colon1ImageView = UIImageView(frame: CGRectMake(0,0,60,72))
-        colon1ImageView.layer.position = CGPoint(x: self.view.frame.width/2 - 57, y: 200.0)
+        colon1ImageView.layer.position = CGPoint(x: self.view.frame.width/2 - 57, y: self.view.frame.width/3 + 100)
         colon1ImageView.image = UIImage(named: "colon.png")
         self.view.addSubview(colon1ImageView)
         colon2ImageView = UIImageView(frame: CGRectMake(0,0,60,72))
-        colon2ImageView.layer.position = CGPoint(x: self.view.frame.width/2 + 57, y: 200.0)
+        colon2ImageView.layer.position = CGPoint(x: self.view.frame.width/2 + 57, y: self.view.frame.width/3 + 100)
         colon2ImageView.image = UIImage(named: "colon2.png")
         self.view.addSubview(colon2ImageView)
     }

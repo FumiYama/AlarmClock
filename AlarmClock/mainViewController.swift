@@ -96,7 +96,9 @@ class mainViewController: UIViewController, MainViewControllerDelegate {
             alert.show()
         } else {
             let sleepViewController = AlarmWaitViewController()
+            sleepViewController.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
             self.presentViewController(sleepViewController, animated: true, completion: nil)
+            
             //AppDelegateのインスタンスを取得
             var appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
             //appDelegateの変数を操作

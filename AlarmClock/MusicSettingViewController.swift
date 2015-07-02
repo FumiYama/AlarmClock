@@ -31,7 +31,7 @@ class MusicSettingViewController: UIViewController, UIPickerViewDelegate, UIPick
     //pickerViewの作成
     func mySoundPicker() {
         soundPicker = UIPickerView()
-        soundPicker.frame = CGRectMake(0, self.view.bounds.height/2, 0, 0)
+        soundPicker.frame = CGRectMake(0, self.view.bounds.height/4, 0, 0)
         soundPicker.backgroundColor = UIColor.groupTableViewBackgroundColor()
         soundPicker.delegate = self
         soundPicker.dataSource = self

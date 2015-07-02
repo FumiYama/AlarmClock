@@ -57,7 +57,6 @@ class AlarmWaitViewController: UIViewController {
         
         self.timeLabel()
         
-        self.alarmCancelButton()
         
         //AppDelegateのインスタンスを取得
         var appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
@@ -95,23 +94,6 @@ class AlarmWaitViewController: UIViewController {
         self.view.addSubview(timeSetLabel)
     }
     
-    // Backボタンの作成
-    func alarmCancelButton(){
-        
-        let alarmCancelButton = UIButton(frame: CGRectMake(0, 500, 100, 100))
-        let img = UIImage(named: "Entypo_e712(1)_128.png") as UIImage?
-        alarmCancelButton.setImage(img, forState: .Normal)
-        alarmCancelButton.layer.position = CGPoint(x: self.view.frame.width/4, y: self.view.frame.width/4)
-        alarmCancelButton.addTarget(self, action: "onClickMainMyButton:", forControlEvents: .TouchUpInside)
-        
-        self.view.addSubview(alarmCancelButton)
-    }
-    // 画面遷移(Back)のための処理
-    internal func onClickMainMyButton(sender: UIButton) {
-        let mainMyViewController = mainViewController()
-        mainMyViewController.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
-        self.presentViewController(mainMyViewController, animated: true, completion: nil)
-    }
     
     //現在時刻の取得
     func time() {

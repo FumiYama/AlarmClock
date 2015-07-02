@@ -31,11 +31,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let myFirstMainViewController: mainViewController = mainViewController()
         
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        self.window?.backgroundColor = UIColor.blackColor()
+
 //        self.window?.backgroundColor = UIColor.groupTableViewBackgroundColor()
+        self.window?.backgroundColor = UIColor(red:0.20, green:0.20, blue:0.20, alpha:1)
         self.window?.rootViewController = mainViewController()
         
         self.window?.makeKeyAndVisible()
+        
+        
         
         return true
     }

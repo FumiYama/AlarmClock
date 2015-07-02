@@ -15,6 +15,24 @@ class mainViewController: UIViewController, MainViewControllerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+//        //グラデーションの開始色
+//        let topColor = UIColor(red:0.05, green:0.05, blue:0.05, alpha:1)
+//        //グラデーションの開始色
+//        let bottomColor = UIColor(red:0.20, green:0.20, blue:0.20, alpha:1)
+//        
+//        //グラデーションの色を配列で管理
+//        let gradientColors: [CGColor] = [topColor.CGColor, bottomColor.CGColor]
+//        
+//        //グラデーションレイヤーを作成
+//        let gradientLayer: CAGradientLayer = CAGradientLayer()
+//        
+//        //グラデーションの色をレイヤーに割り当てる
+//        gradientLayer.colors = gradientColors
+//        //グラデーションレイヤーをスクリーンサイズにする
+//        gradientLayer.frame = self.view.bounds
+//        
+        //グラデーションレイヤーをビューの一番下に配置
+//        self.view.layer.insertSublayer(gradientLayer, atIndex: 0)
 
         self.timeSettingLabel()
         self.alarmEditButton()
@@ -95,16 +113,30 @@ class mainViewController: UIViewController, MainViewControllerDelegate {
             alert.addButtonWithTitle("OK")
             alert.show()
         } else {
-            let sleepViewController = AlarmWaitViewController()
-            sleepViewController.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
-            self.presentViewController(sleepViewController, animated: true, completion: nil)
-            
-            //AppDelegateのインスタンスを取得
-            var appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-            //appDelegateの変数を操作
-            appDelegate.message1 = timeSetLabel.text
+            let alertController = UIAlertController(title: "You can't controll ArarmTime.", message: "Are you OK ?", preferredStyle: .Alert)
+            let okAction = UIAlertAction(title: "OK", style: .Default) {
+                action in self.TransAlarmWait()
+            }
+            let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) {
+                action in println("pushed cancel!")
+            }
+            alertController.addAction(okAction)
+            alertController.addAction(cancelAction)
+            presentViewController(alertController, animated: true, completion: nil)
         }
     }
+    
+    func TransAlarmWait() {
+        let sleepViewController = AlarmWaitViewController()
+        sleepViewController.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
+        self.presentViewController(sleepViewController, animated: true, completion: nil)
+        
+        //AppDelegateのインスタンスを取得
+        var appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        //appDelegateの変数を操作
+        appDelegate.message1 = timeSetLabel.text
+    }
+    
         // delegate で使用するメソッドの中身を記述
     func timeSet(text: String) {
         timeSetLabel.text = text

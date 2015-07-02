@@ -13,7 +13,6 @@
 		32C280B21B37BD7E00186A96 /* AlarmClockTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C280B11B37BD7E00186A96 /* AlarmClockTests.swift */; };
 		32C280BC1B37C49700186A96 /* mainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C280BB1B37C49700186A96 /* mainViewController.swift */; };
 		32C280BE1B37C4B100186A96 /* AlarmEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C280BD1B37C4B100186A96 /* AlarmEditViewController.swift */; };
-		32C280C01B387E0500186A96 /* BubbleTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C280BF1B387E0500186A96 /* BubbleTransition.swift */; };
 		32C280C21B387FCD00186A96 /* AlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C280C11B387FCD00186A96 /* AlarmViewController.swift */; };
 		32F8CDAC1B3FC9C900A4EEBF /* AlarmWaitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F8CDAB1B3FC9C900A4EEBF /* AlarmWaitViewController.swift */; };
 		32F8CDD01B40F92400A4EEBF /* 0.png in Resources */ = {isa = PBXBuildFile; fileRef = 32F8CDC51B40F92400A4EEBF /* 0.png */; };
@@ -76,7 +75,6 @@
 		32C280B11B37BD7E00186A96 /* AlarmClockTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmClockTests.swift; sourceTree = "<group>"; };
 		32C280BB1B37C49700186A96 /* mainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mainViewController.swift; sourceTree = "<group>"; };
 		32C280BD1B37C4B100186A96 /* AlarmEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmEditViewController.swift; sourceTree = "<group>"; usesTabs = 0; };
-		32C280BF1B387E0500186A96 /* BubbleTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BubbleTransition.swift; sourceTree = "<group>"; };
 		32C280C11B387FCD00186A96 /* AlarmViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmViewController.swift; sourceTree = "<group>"; };
 		32F8CDAB1B3FC9C900A4EEBF /* AlarmWaitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmWaitViewController.swift; sourceTree = "<group>"; };
 		32F8CDC51B40F92400A4EEBF /* 0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 0.png; sourceTree = "<group>"; };
@@ -159,7 +157,6 @@
 			children = (
 				32F8CE011B41A34600A4EEBF /* BGM */,
 				32F8CDC41B40F92400A4EEBF /* Image-time */,
-				32C280BF1B387E0500186A96 /* BubbleTransition.swift */,
 				32C2809B1B37BD7E00186A96 /* AppDelegate.swift */,
 				32C280BB1B37C49700186A96 /* mainViewController.swift */,
 				32C280BD1B37C4B100186A96 /* AlarmEditViewController.swift */,
@@ -383,7 +380,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				32C280C01B387E0500186A96 /* BubbleTransition.swift in Sources */,
 				32C2809E1B37BD7E00186A96 /* ViewController.swift in Sources */,
 				32F8CE151B41E26B00A4EEBF /* MusicSettingViewController.swift in Sources */,
 				32C280C21B387FCD00186A96 /* AlarmViewController.swift in Sources */,
